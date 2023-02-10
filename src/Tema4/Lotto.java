@@ -11,36 +11,28 @@ public class Lotto {
     }
     public static Set generateTicket() {
 
-        Set<Integer> nrextrase=new HashSet<>();
-        nrextrase.add(new Random().nextInt(49) + 1);
-        nrextrase.add(new Random().nextInt(49) + 1);
-        nrextrase.add(new Random().nextInt(49) + 1);
-        nrextrase.add(new Random().nextInt(49) + 1);
-        nrextrase.add(new Random().nextInt(49) + 1);
-        nrextrase.add(new Random().nextInt(49) + 1);
+        Set<Integer> bilet=new HashSet<>();
 
-       return nrextrase;
+        while(bilet.size()<6) {
+            bilet.add(new Random().nextInt(49) + 1);
+        }
+
+       return bilet;
     }
     public static void myTicket() {
 
-        Set<Integer> ticket = generateTicket();
-        System.out.println("Biletul extras este: " + ticket);
+        Set<Integer> nrExtrase = generateTicket();
+        System.out.println("Biletul extras este: " + nrExtrase);
         int counter = 0;
         int incercari = 1;
         boolean checker = true;
         int cost = 10;
 
         while (checker) {
-//            Set<Integer> biletulmeu = new HashSet<>();
-//            biletulmeu.add(new Random().nextInt(49) + 1);
-//            biletulmeu.add(new Random().nextInt(49) + 1);
-//            biletulmeu.add(new Random().nextInt(49) + 1);
-//            biletulmeu.add(new Random().nextInt(49) + 1);
-//            biletulmeu.add(new Random().nextInt(49) + 1);
-//            biletulmeu.add(new Random().nextInt(49) + 1);
+
             Set<Integer> biletulmeu = generateTicket();
 
-            for (int i : ticket) {
+            for (int i : nrExtrase) {
                 for (int j : biletulmeu) {
                     if (i == j) {
                         counter++;
